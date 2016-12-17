@@ -1,0 +1,62 @@
+<div>
+    <div id="calculatorMenu">
+        <button class="btn" ng-click="isOpenMenu()">≡</button>
+        <div ng-show="isOpen" class="dropdown">
+            <ul>
+                <li ng-repeat="item in itemsList" class="cursor-pointer-style">
+                    <a ng-click="getIndexCalculatorTypr($index)">{{item.name}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="calculatorOutput">
+        <div>{{memoryExp}}</div>
+    </div>
+    <div id="calculatorInput">
+        <input type="text" pattern="\d+" ng-change="onChangeValue()" 
+               ng-model="displayValue" readonly>
+        <div id="result">{{result| number}}</div>
+    </div>
+    <div id="calculatorControl">
+        <div>
+            <button class="btn" type="button">%</button>
+            <button class="btn" type="button" ng-click="rootExp()">√</button>
+            <button class="btn" type="button" ng-click="powTwoExp()">
+                x<sup><small>2</small></sup>
+            </button>
+            <button class="btn" type="button" ng-click="oneDelValExp()">1/x</button>
+        </div>
+        <div>
+            <button class="btn" type="button">CE</button>
+            <button class="btn" type="button" ng-click="onClickClear()">C</button>
+            <button class="btn" type="button" ng-click="onClickDel()">←</button>
+            <button class="btn" type="button" ng-click="onClickDivide()">/</button>
+        </div>
+        <div>
+            <button class="btn" type="button" ng-click="addDisplayValue(7)">7</button>
+            <button class="btn" type="button" ng-click="addDisplayValue(8)">8</button>
+            <button class="btn" type="button" ng-click="addDisplayValue(9)">9</button>
+            <button class="btn" type="button" ng-click="onClickMultiply()">*</button>
+            <div>
+                <div>
+                    <button class="btn" type="button" ng-click="addDisplayValue(4)">4</button>
+                    <button class="btn" type="button" ng-click="addDisplayValue(5)">5</button>
+                    <button class="btn" type="button" ng-click="addDisplayValue(6)">6</button>
+                    <button class="btn" type="button" ng-click="onClickSubtract()">-</button>
+                </div>
+                <div>
+                    <button class="btn" type="button" ng-click="addDisplayValue(1)">1</button>
+                    <button class="btn" type="button" ng-click="addDisplayValue(2)">2</button>
+                    <button class="btn" type="button" ng-click="addDisplayValue(3)">3</button>
+                    <button class="btn" type="button" ng-click="onClickSum()">+</button>
+                </div>
+                <div>
+                    <button class="btn" type="button">±</button>
+                    <button class="btn" type="button" ng-click="addDisplayValue(0)">0</button>
+                    <button class="btn" type="button" ng-click="crateDecimal()">.</button>
+                    <button class="btn" type="button" ng-click="onClickCalculate()">=</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

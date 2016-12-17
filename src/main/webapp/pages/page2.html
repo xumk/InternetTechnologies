@@ -1,0 +1,108 @@
+<h2>Лабораторная работа №2 - Фреймы, таблицы, видео!</h2>
+<div id="bigText">
+    <h3 class="name-text-style">Краткая историческая справка</h3>
+    <p>
+        Kotlin (Ко́тлин) — статически типизированный язык программирования, работающий поверх JVM и разрабатываемый компанией 
+        JetBrains. Компилируется также в JavaScript. 
+        Язык назван в честь острова Котлин в Финском заливе, на котором расположена часть Кронштадта.
+    </p>
+    <p>
+        Авторы ставили целью создать язык более лаконичный и типобезопасный, чем Java, и более простой, 
+        чем Scala. Следствием упрощения по сравнению со Scala стали также более быстрая компиляция и лучшая поддержка языка в IDE.
+    </p>
+    <p>
+        Язык разрабатывается с 2010 года, публично представлен в июле 2011. Исходный код был открыт в феврале 2012. 
+        В феврале был выпущен milestone 1, включающий плагин для IDEA. В июне — milestone 2 с поддержкой Android. 
+        В декабре 2012 года вышел milestone 4, включающий, в частности, поддержку Java 7. В феврале 2016 года вышел релиз-кандидат версии 1.0, 
+        а 15 февраля 2016 года — релиз 1.0
+    </p>
+</div>
+<div class="flex-wrap-style">
+    <h3 class="name-text-style">Не много для изучения Kotlin</h3>
+    <details>
+        <summary>Kotlin: Урок 0. Введение</summary>
+        <div class="video-view">			
+            <iframe width="700" height="315" src="https://www.youtube.com/embed/L9k_NdTaMeI"></iframe>
+            <p>Это видео вставленно с помощью iframe</p>	
+        </div>
+    </details>
+    <details>
+        <summary>Kotlin: Урок 1. String Templates</summary>
+        <div class="video-view">
+            <object width="700" height="315" data="https://www.youtube.com/embed/frw1DpNm_ms">       
+            </object>
+            <p>Это видео вставленно с помощью object</p>
+        </div>
+    </details>
+    <details ng-if="false">
+        <summary>Kotlin: Урок 2. Переменные var vs. val</summary>
+        <div class="video-view">
+            <embed width="700" height="315"
+                   src="https://www.youtube.com/embed/D5LOyX-6toY"/>
+            <p>Это видео вставленно с помощью embed</p>
+        </div>
+    </details>
+</div>
+<div class="form-saite">
+    <table>
+        <caption>Отображение Java Коллекций в Kotlin</caption>
+        <tr>
+            <td>Java type</td>
+            <td>Kotlin read-only type</td>
+            <td>Kotlin mutable type</td>
+            <td>Loaded platform type</td>
+        </tr>
+        <tr>
+            <td>Iterator&#60;T&#62;</td>
+            <td>Iterator&#60;T&#62;</td>
+            <td>MutableIterator&#60;T&#62;</td>
+            <td>(Mutable)Iterator&#60;T&#62;!</td>
+        </tr>
+        <tr>
+            <td>Iterable&#60;T&#62;</td>
+            <td>Iterable&#60;T&#62;</td>
+            <td>MutableIterable&#60;T&#62;</td>
+            <td>(Mutable)Iterable&#60;T&#62;!</td>
+        </tr>
+        <tr>
+            <td>Collection&#60;T&#62;</td>	
+            <td>Collection&#60;T&#62;</td>	
+            <td>MutableCollection&#60;T&#62;</td>	
+            <td>(Mutable)Collection&#60;T&#62;!</td>
+        </tr>
+        <tr>
+            <td>Set&#60;T&#62;</td>	
+            <td>Set&#60;T&#62;</td>	
+            <td>MutableSet&#60;T&#62;</td>	
+            <td>(Mutable)Set&#60;T&#62;!</td>
+        </tr>
+        <tr>
+            <td>List&#60;T&#62;</td>	
+            <td>List&#60;T&#62;</td>	
+            <td>MutableList&#60;T&#62;</td>	
+            <td>(Mutable)List&#60;T&#62;!</td>
+        </tr>
+        <tr>
+            <td>ListIterator&#60;T&#62;</td>	
+            <td>ListIterator&#60;T&#62;</td>	
+            <td>MutableListIterator&#60;T&#62;</td>	
+            <td>(Mutable)ListIterator&#60;T&#62;!</td>
+        </tr>
+        <tr>
+            <td>Map&#60;K, V&#62;</td>	
+            <td>Map&#60;K, V&#62;</td>	
+            <td>MutableMap&#60;K, V&#62;</td>	
+            <td>(Mutable)Map&#60;K, V&#62;!</td>
+        </tr>
+        <tr>
+            <td>Map.Entry&#60;K, V&#62;</td>	
+            <td>Map.Entry&#60;K, V&#62;</td>	
+            <td>MutableMap.MutableEntry&#60;K,V&#62;</td>	
+            <td>(Mutable)Map.(Mutable)Entry&#60;K, V&#62;!</td>
+        </tr>
+    </table>
+</div>
+<div class="form-saite">
+    <h3 class="name-text-style">Документация Kotlin</h3>
+    <iframe width="700" height="315" src="https://kotlinlang.org/docs/reference/"></iframe>
+</div>			

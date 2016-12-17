@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Информационные технологии</title>
+
+        <meta name="author" content="Ивашин Алексей Витальевич"/>
+        <meta charset="utf-8"/>
+
+        <link rel="stylesheet" href="css/style.css">
+
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/angular-route/angular-route.min.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/controller/controllers.js"></script>
+        <script src="js/calc/Calculator.js"></script>
+
+    </head>
+    <body ng-app="app">
+        <div id="wrap">
+            <div id="header">
+                <h1><a href="#">Сайт</a></h1>
+                <p><strong>Для лабораторных работ по предмету "Интернет технологии"</strong></p>
+            </div>
+            <div id="leftside" ng-if="isShowMenu">
+                <h2 class="hide">Меню сайта:</h2>
+                <div id="menu3">
+                    <ul>
+                        <li><a href="#/lb1" title="LB1">Первая лабораторная работа</a></li>
+                        <li><a href="#/lb2" title="LB2">Вторая лабораторная работа</a></li>
+                        <li><a href="#/lb3" title="LB3">Третья лабораторная работа</a></li>
+                        <li><a href="#/authorize" title="LB4">Четвертая лабораторная работа</a></li>	
+                    </ul>
+                </div>
+                <div class="announce" ng-show="isNeedShowAnnonce" ng-bind-html="htmlTextAnnonce"> 
+                </div>
+            </div>
+            <div id="content" ng-view>
+                <!-- Представление будет здесь -->
+            </div>
+            <div id="footer">
+                <p><a>© Создано студентом группы ИПБ-13. Ивашин Алексей Витальевич 2016 год</a></p>
+            </div>
+        </div>
+    </body>
+</html>
