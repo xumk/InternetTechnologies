@@ -1,6 +1,7 @@
-var app = angular.module('app', ['ngRoute', 'ngSanitize']);
+var app = angular.module('app', ['ngCookies', 'ngRoute', 'ngSanitize']);
 
-app.config(function ($routeProvider) {
+app.config(function ($routeProvider, $cookies) {
+    $cookies.test = "test";
     $routeProvider
             .when('/', {
                 templateUrl: 'pages/page4.html',
@@ -22,6 +23,7 @@ app.config(function ($routeProvider) {
                 controller: 'lb3'
             });
 });
+
 app.controller('AppCtrl', function ($rootScope) {
     $rootScope.isNeedShowAnnonce = false;
     $rootScope.htmlTextAnnonce = "";

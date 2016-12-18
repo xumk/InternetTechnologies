@@ -1,7 +1,79 @@
-app.controller('lb4', ['$scope', '$rootScope', function ($scope, $rootScope) {
+app.controller('lb4', ['$scope', '$rootScope', '$http', '$window', '$location',
+    function ($scope, $rootScope, $http, $window, $location) {
         $rootScope.isNeedShowAnnonce = false;
         $rootScope.isShowMenu = false;
+        $rootScope.authorization = false;
+
+        $rootScope.resMethod = function (res) {
+            console.log(res);
+            if (res.error) {
+                alert(res.error);
+                return;
+            }
+            if (res.message) {
+                alert(res.message);
+            }
+            if (res.authorization) {
+                $rootScope.isShowMenu = res.authorization;
+                setCookie('internetTehnologySession', res.session);
+                $location.path('/lb1');
+            }
+        };
+
+        $rootScope.httpCallErrF = function (res) {
+            console.log(res);
+        };
+
+        $scope.login = "";
+        $scope.password = "";
+        $scope.regExpForLogin = "^[a-zA-Z][a-zA-Z0-9-_\\.]{1,20}$";
+        console.log($window.location.pathname);
+        $scope.authorize = function () {
+            var login = $scope.login;
+            var password = $scope.password;
+            var singUpInfo = {};
+            singUpInfo.login = login;
+            singUpInfo.password = password;
+            var url = $window.location.pathname + 'rest/gate/authorization';
+            $rootScope.httpContrRes = $http({
+                method: 'POST',
+                url: url,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                transformRequest: function (obj) {
+                    var str = [];
+                    for (var p in obj)
+                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                    return str.join("&");
+                },
+                data: {singUpInfo: angular.toJson(singUpInfo).toString()}});
+            $rootScope.httpContrRes.success($rootScope.resMethod);
+            $rootScope.httpContrRes.error($rootScope.httpCallErrF);
+        };
+
+        $scope.registr = function () {
+            var login = $scope.login;
+            var password = $scope.password;
+            var singUpInfo = {};
+            singUpInfo.login = login;
+            singUpInfo.password = password;
+            var url = $window.location.pathname + 'rest/gate/registration';
+            $rootScope.httpContrRes = $http({
+                method: 'POST',
+                url: url,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                transformRequest: function (obj) {
+                    var str = [];
+                    for (var p in obj)
+                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                    return str.join("&");
+                },
+                data: {singUpInfo: angular.toJson(singUpInfo).toString()}});
+            ;
+            $rootScope.httpContrRes.success($rootScope.resMethod);
+            $rootScope.httpContrRes.error($rootScope.httpCallErrF);
+        };
     }]);
+
 app.controller('lb1', ['$scope', '$rootScope', '$anchorScroll', '$location',
     function ($scope, $rootScope, $anchorScroll, $location) {
         $rootScope.isNeedShowAnnonce = true;
@@ -27,6 +99,36 @@ app.controller('lb1', ['$scope', '$rootScope', '$anchorScroll', '$location',
             }
         };
     }]);
+
+function setCookie(name, value, options) {
+  options = options || {};
+
+  var expires = options.expires;
+
+  if (typeof expires == "number" && expires) {
+    var d = new Date();
+    d.setTime(d.getTime() + expires * 1000);
+    expires = options.expires = d;
+  }
+  if (expires && expires.toUTCString) {
+    options.expires = expires.toUTCString();
+  }
+
+  value = encodeURIComponent(value);
+
+  var updatedCookie = name + "=" + value;
+
+  for (var propName in options) {
+    updatedCookie += "; " + propName;
+    var propValue = options[propName];
+    if (propValue !== true) {
+      updatedCookie += "=" + propValue;
+    }
+  }
+
+  document.cookie = updatedCookie;
+}
+
 app.controller('lb2', ['$scope', '$rootScope', function ($scope, $rootScope) {
         $rootScope.isNeedShowAnnonce = true;
         $rootScope.htmlTextAnnonce = "<h2>Понравился язык?</h2>"
