@@ -28,7 +28,7 @@ public class DataBaseService {
     private static DataBaseService service;
 
     private DataBaseService() {
-        Configuration configuration = this.getPostgreSqlConfiguration();
+        Configuration configuration = this.getSqliteConfiguration();
         this.sessionFactory = createSessionFactory(configuration);
     }
 
@@ -43,7 +43,7 @@ public class DataBaseService {
         return this.sessionFactory;
     }
 
-    private Configuration getPostgreSqlConfiguration() {
+    private Configuration getSqliteConfiguration() {
         Configuration configuration = new Configuration();
         configuration.addAnnotatedClass(User.class);
 
